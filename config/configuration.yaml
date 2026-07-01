@@ -1,0 +1,55 @@
+# Home Assistant Configuration
+# Plik: /config/configuration.yaml
+
+homeassistant:
+  name: Home
+  latitude: 52.1
+  longitude: 19.1
+  elevation: 100
+  unit_system: metric
+  time_zone: Europe/Warsaw
+
+logger:
+  default: info
+
+frontend:
+
+http:
+  server_port: 8123
+
+influxdb:
+  api_version: 2
+  host: localhost
+  port: 8086
+  token: YOUR_INFLUXDB_TOKEN_HERE
+  organization: home-assistant
+  bucket: home-assistant
+  ssl: false
+  verify_ssl: false
+
+history_stats:
+  salon_zawar_on_time:
+    entity_id: switch.ogrzewanie_zawory_switch_4
+    state: "on"
+    type: time
+    period: day
+  sypialnia_zawar_on_time:
+    entity_id: switch.ogrzewanie_zawory_switch_2
+    state: "on"
+    type: time
+    period: day
+  lazienka_zawar_on_time:
+    entity_id: switch.ogrzewanie_zawory_switch_3
+    state: "on"
+    type: time
+    period: day
+  pralnia_zawar_on_time:
+    entity_id: switch.ogrzewanie_zawory_switch_1
+    state: "on"
+    type: time
+    period: day
+
+automation: !include automations.yaml
+input_number: !include input_number.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
