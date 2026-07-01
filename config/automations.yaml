@@ -1,0 +1,176 @@
+# Automacja Ogrzewania - Home Assistant
+# Plik: /config/automations.yaml
+
+# ====================
+# SALON
+# ====================
+
+- id: heating_salon_control
+  alias: "Salon - Sterowanie ogrzewaniem"
+  description: "Kontrola temperatury w salonie"
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.ogrzewanie_zawory_switch_4
+      enabled: >
+        {% set current_temp = states('sensor.ths_salon_temperatura') | float(20) %}
+        {% set current_hour = now().hour + (now().minute / 60) %}
+        {% set hour_start = states('input_number.input_number_salon_hour_start') | float(17) %}
+        {% set hour_end = states('input_number.input_number_salon_hour_end') | float(24) %}
+        {% set temp_day = states('input_number.input_number_salon_temp_day') | float(24) %}
+        {% set temp_night = states('input_number.input_number_salon_temp_night') | float(22) %}
+        {% if (current_hour >= hour_start or current_hour < hour_end) %}
+          {% set target_temp = temp_day %}
+        {% else %}
+          {% set target_temp = temp_night %}
+        {% endif %}
+        {{ current_temp < target_temp }}
+    - service: switch.turn_off
+      data:
+        entity_id: switch.ogrzewanie_zawory_switch_4
+      enabled: >
+        {% set current_temp = states('sensor.ths_salon_temperatura') | float(20) %}
+        {% set current_hour = now().hour + (now().minute / 60) %}
+        {% set hour_start = states('input_number.input_number_salon_hour_start') | float(17) %}
+        {% set hour_end = states('input_number.input_number_salon_hour_end') | float(24) %}
+        {% set temp_day = states('input_number.input_number_salon_temp_day') | float(24) %}
+        {% set temp_night = states('input_number.input_number_salon_temp_night') | float(22) %}
+        {% if (current_hour >= hour_start or current_hour < hour_end) %}
+          {% set target_temp = temp_day %}
+        {% else %}
+          {% set target_temp = temp_night %}
+        {% endif %}
+        {{ current_temp >= target_temp }}
+
+# ====================
+# SYPIALNIA
+# ====================
+
+- id: heating_sypialnia_control
+  alias: "Sypialnia - Sterowanie ogrzewaniem"
+  description: "Kontrola temperatury w sypialni"
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.ogrzewanie_zawory_switch_2
+      enabled: >
+        {% set current_temp = states('sensor.ths_sypialnia_temperatura') | float(20) %}
+        {% set target_temp = states('input_number.input_number_sypialnia_temp_day') | float(24) %}
+        {{ current_temp < target_temp }}
+    - service: switch.turn_off
+      data:
+        entity_id: switch.ogrzewanie_zawory_switch_2
+      enabled: >
+        {% set current_temp = states('sensor.ths_sypialnia_temperatura') | float(20) %}
+        {% set target_temp = states('input_number.input_number_sypialnia_temp_day') | float(24) %}
+        {{ current_temp >= target_temp }}
+
+# ====================
+# ŁAZIENKA
+# ====================
+
+- id: heating_lazienka_control
+  alias: "Łazienka - Sterowanie ogrzewaniem"
+  description: "Kontrola temperatury w łazience"
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.ogrzewanie_zawory_switch_3
+      enabled: >
+        {% set current_temp = states('sensor.ths_lazienka_temperatura') | float(20) %}
+        {% set target_temp = states('input_number.input_number_lazienka_temp_day') | float(26) %}
+        {{ current_temp < target_temp }}
+    - service: switch.turn_off
+      data:
+        entity_id: switch.ogrzewanie_zawory_switch_3
+      enabled: >
+        {% set current_temp = states('sensor.ths_lazienka_temperatura') | float(20) %}
+        {% set target_temp = states('input_number.input_number_lazienka_temp_day') | float(26) %}
+        {{ current_temp >= target_temp }}
+
+# ====================
+# PRALNIA
+# ====================
+
+- id: heating_pralnia_control
+  alias: "Pralnia - Sterowanie ogrzewaniem"
+  description: "Kontrola temperatury w pralni"
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.ogrzewanie_zawory_switch_1
+      enabled: >
+        {% set current_temp = states('sensor.ths_pralnia_temperatura') | float(20) %}
+        {% set target_temp = states('input_number.input_number_pralnia_temp_day') | float(24) %}
+        {{ current_temp < target_temp }}
+    - service: switch.turn_off
+      data:
+        entity_id: switch.ogrzewanie_zawory_switch_1
+      enabled: >
+        {% set current_temp = states('sensor.ths_pralnia_temperatura') | float(20) %}
+        {% set target_temp = states('input_number.input_number_pralnia_temp_day') | float(24) %}
+        {{ current_temp >= target_temp }}
+
+# ====================
+# KACPERKA (TEMPLATE - ZMIEŃ NA SWOJE!)
+# ====================
+
+- id: heating_kacperka_control
+  alias: "Kacperka - Sterowanie ogrzewaniem"
+  description: "Kontrola temperatury w Kacperce"
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.ZMIEN_NA_SWOJ_ZAWAR
+      enabled: >
+        {% set current_temp = states('sensor.ZMIEN_NA_SWOJ_CZUJNIK_TEMP') | float(20) %}
+        {% set target_temp = states('input_number.input_number_kacperka_temp_day') | float(24) %}
+        {{ current_temp < target_temp }}
+    - service: switch.turn_off
+      data:
+        entity_id: switch.ZMIEN_NA_SWOJ_ZAWAR
+      enabled: >
+        {% set current_temp = states('sensor.ZMIEN_NA_SWOJ_CZUJNIK_TEMP') | float(20) %}
+        {% set target_temp = states('input_number.input_number_kacperka_temp_day') | float(24) %}
+        {{ current_temp >= target_temp }}
+
+# ====================
+# PIWNICA (TEMPLATE - ZMIEŃ NA SWOJE!)
+# ====================
+
+- id: heating_piwnica_control
+  alias: "Piwnica - Sterowanie ogrzewaniem"
+  description: "Kontrola temperatury w Piwnicy"
+  trigger:
+    - platform: time_pattern
+      minutes: "/5"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.ZMIEN_NA_SWOJ_ZAWAR
+      enabled: >
+        {% set current_temp = states('sensor.ZMIEN_NA_SWOJ_CZUJNIK_TEMP') | float(20) %}
+        {% set target_temp = states('input_number.input_number_piwnica_temp_day') | float(24) %}
+        {{ current_temp < target_temp }}
+    - service: switch.turn_off
+      data:
+        entity_id: switch.ZMIEN_NA_SWOJ_ZAWAR
+      enabled: >
+        {% set current_temp = states('sensor.ZMIEN_NA_SWOJ_CZUJNIK_TEMP') | float(20) %}
+        {% set target_temp = states('input_number.input_number_piwnica_temp_day') | float(24) %}
+        {{ current_temp >= target_temp }}
