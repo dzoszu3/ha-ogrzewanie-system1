@@ -1,0 +1,248 @@
+# Input Numbers - Suwaki Kontrolne dla Ogrzewania
+# Plik: /config/input_number.yaml
+
+# SALON
+input_number_salon_temp_night:
+  name: "Salon - Temperatura Noc"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_salon_temp_day:
+  name: "Salon - Temperatura Dzień"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_salon_hour_start:
+  name: "Salon - Godzina Start"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-start
+  mode: slider
+  restore: true
+
+input_number_salon_hour_end:
+  name: "Salon - Godzina End"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-end
+  mode: slider
+  restore: true
+
+# SYPIALNIA
+input_number_sypialnia_temp_night:
+  name: "Sypialnia - Temperatura Noc"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_sypialnia_temp_day:
+  name: "Sypialnia - Temperatura Dzień"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_sypialnia_hour_start:
+  name: "Sypialnia - Godzina Start"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-start
+  mode: slider
+  restore: true
+
+input_number_sypialnia_hour_end:
+  name: "Sypialnia - Godzina End"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-end
+  mode: slider
+  restore: true
+
+# LAZIENKA
+input_number_lazienka_temp_night:
+  name: "Łazienka - Temperatura Noc"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_lazienka_temp_day:
+  name: "Łazienka - Temperatura Dzień"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_lazienka_hour_start:
+  name: "Łazienka - Godzina Start"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-start
+  mode: slider
+  restore: true
+
+input_number_lazienka_hour_end:
+  name: "Łazienka - Godzina End"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-end
+  mode: slider
+  restore: true
+
+# PRALNIA
+input_number_pralnia_temp_night:
+  name: "Pralnia - Temperatura Noc"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_pralnia_temp_day:
+  name: "Pralnia - Temperatura Dzień"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_pralnia_hour_start:
+  name: "Pralnia - Godzina Start"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-start
+  mode: slider
+  restore: true
+
+input_number_pralnia_hour_end:
+  name: "Pralnia - Godzina End"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-end
+  mode: slider
+  restore: true
+
+# KACPERKA
+input_number_kacperka_temp_night:
+  name: "Kacperka - Temperatura Noc"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_kacperka_temp_day:
+  name: "Kacperka - Temperatura Dzień"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_kacperka_hour_start:
+  name: "Kacperka - Godzina Start"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-start
+  mode: slider
+  restore: true
+
+input_number_kacperka_hour_end:
+  name: "Kacperka - Godzina End"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-end
+  mode: slider
+  restore: true
+
+# PIWNICA
+input_number_piwnica_temp_night:
+  name: "Piwnica - Temperatura Noc"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_piwnica_temp_day:
+  name: "Piwnica - Temperatura Dzień"
+  unit_of_measurement: "°C"
+  min: 18
+  max: 30
+  step: 0.5
+  icon: mdi:thermometer
+  mode: slider
+  restore: true
+
+input_number_piwnica_hour_start:
+  name: "Piwnica - Godzina Start"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-start
+  mode: slider
+  restore: true
+
+input_number_piwnica_hour_end:
+  name: "Piwnica - Godzina End"
+  unit_of_measurement: "h"
+  min: 0
+  max: 23.5
+  step: 0.5
+  icon: mdi:clock-end
+  mode: slider
+  restore: true
